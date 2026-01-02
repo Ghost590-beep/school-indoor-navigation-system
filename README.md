@@ -2,6 +2,13 @@
 
 A web-based indoor school navigation system designed to help students, staff, and visitors navigate within the school campus using interactive maps.
 
+## NOTE:
+## Issue Classification
+
+Issues 1–9 describe what the system does (functional requirements).
+Issues 10–14 describe how the system is built (technical implementation).
+
+
 ## Methodology
 This project is developed using Agile methodology with the Scrum framework.
 
