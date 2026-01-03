@@ -6,12 +6,30 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>School Indoor Navigation</h1>
+    <header>
+      <h1>School Indoor Navigation System</h1>
+      <p>Interactive Indoor Map</p>
+    </header>
 
-    <div id="map-container">
-      <!-- SVG map will load here -->
+    <div class="map-container">
+      <div class="map-wrapper">
+        <img
+          src="assets/images/floor1.jpg"
+          alt="First Floor Map"
+          class="floor-map"
+        />
+
+        <svg class="map-overlay" viewBox="0 0 1000 600">
+          <circle cx="200" cy="120" r="6" data-location="Sick Bay" />
+          <circle cx="700" cy="400" r="6" data-location="E-Library" />
+          <circle cx="750" cy="150" r="6" data-location="Admissions" />
+        </svg>
+      </div>
     </div>
 
+    <footer>
+      <p>&copy; 2026 School Indoor Navigation System</p>
+    </footer>
     <script src="js/app.js"></script>
   </body>
 </html>
