@@ -2,34 +2,132 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>School Indoor Navigation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
-  <body>
-    <header>
-      <h1>School Indoor Navigation System</h1>
-      <p>Interactive Indoor Map</p>
+
+  <body class="home-page">
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+      <div class="logo"><span>ICTU Nav</span></div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="map.html">Map</a>
+        <a href="about.html">About</a>
+      </nav>
     </header>
 
-    <div class="map-container">
-      <div class="map-wrapper">
-        <img
-          src="assets/images/floor1.jpg"
-          alt="First Floor Map"
-          class="floor-map"
-        />
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="home">
+      <!-- Intro / Hero Section -->
+      <section class="home-intro">
+        <h1>ICTU Indoor Navigation System</h1>
+        <p>
+          ICT University is a leading institution focused on information and
+          communication technologies, innovation, and practical learning.
+        </p>
+      </section>
+      <!-- Informational Sections -->
 
-        <svg class="map-overlay" viewBox="0 0 1000 600">
-          <circle cx="200" cy="120" r="6" data-location="Sick Bay" />
-          <circle cx="700" cy="400" r="6" data-location="E-Library" />
-          <circle cx="750" cy="150" r="6" data-location="Admissions" />
-        </svg>
+      <section class="home-section position-top-left">
+        <h2 onclick="toggleSection(this)" tabindex="0">
+          <span class="arrow">▶</span>
+          What This Application Does
+        </h2>
+        <div class="section-content">
+          <p>
+            This web-based indoor navigation system helps users locate
+            classrooms, offices, and key facilities within ICT University.
+          </p>
+        </div>
+      </section>
+
+      <section class="home-section position-center">
+        <h2 onclick="toggleSection(this)" tabindex="0">
+          <span class="arrow">▶</span>
+          For Who It Is For
+        </h2>
+        <div class="section-content">
+          <p>
+            The system is designed for students, staff, and visitors who need
+            quick and clear directions within the campus buildings.
+          </p>
+        </div>
+      </section>
+
+      <section class="home-section position-bottom-right">
+        <h2 onclick="toggleSection(this)" tabindex="0">
+          <span class="arrow">▶</span>
+          How It Helps
+        </h2>
+        <div class="section-content">
+          <p>
+            By providing an interactive map, the system reduces confusion, saves
+            time, and improves the overall campus experience.
+          </p>
+        </div>
+      </section>
+    </main>
+    <button id="backToTop" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="./assets/images/ICTUlogo.png" alt="ICT University Logo" />
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+
+        <p class="footer-text">
+          © 2026 Campus Navigation System — ICT University
+        </p>
+        <p class="footer-sub">Built using Agile Scrum methodology</p>
       </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 School Indoor Navigation System</p>
     </footer>
-    <script src="js/app.js"></script>
+    <!-- ================= SCRIPT ================= -->
+    <script>
+      function toggleSection(title) {
+        const content = title.nextElementSibling;
+        const arrow = title.querySelector(".arrow");
+
+        content.classList.toggle("open");
+        arrow.classList.toggle("rotate");
+        //dropdown accessibility
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.add("show");
+          } else {
+            backToTop.classList.remove("show");
+          }
+        });
+
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+    </script>
   </body>
 </html>
