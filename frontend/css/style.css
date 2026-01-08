@@ -1,1 +1,369 @@
- 
+/* ======================================================
+   RESET
+====================================================== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+/* Hover color */
+.main-nav a:hover {
+  color: #f1c40f;
+}
+
+/* ======================================================
+   HEADER / NAVIGATION (GLOBAL)
+====================================================== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.logo span {
+  color: #f1c40f;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+.main-nav a.active {
+  color: #f1c40f;
+}
+
+/* ======================================================
+   ABOUT PAGE
+====================================================== */
+.about-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+    url("../assets/images/ictuImage.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #e6e6e6;
+}
+
+/* About header */
+.about-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-logo {
+  width: 45px;
+  height: auto;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.about-header h1 {
+  font-size: 2rem;
+  color: #f1c40f;
+}
+
+.subtitle {
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+
+/* About content */
+.about-content {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  background: rgba(15, 15, 15, 0.75);
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.about-content h2 {
+  color: #f1c40f;
+}
+
+.about-content p {
+  color: #e0e0e0;
+  line-height: 1.8;
+}
+
+/* ======================================================
+   TEAM SECTION (ABOUT PAGE)
+====================================================== */
+.team-section {
+  margin-top: 70px;
+  padding: 40px 20px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: #f1c40f;
+  margin-bottom: 30px;
+}
+
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap; /* 3 top, 2 bottom */
+}
+
+.team-card {
+  width: 180px;
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #2f2f2f;
+}
+
+.team-photo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 12px;
+  background: #2c2c2c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.75rem;
+}
+
+/* ======================================================
+   HOME PAGE
+====================================================== */
+.home-page {
+  background: linear-gradient(rgba(20, 20, 20, 0.6), rgba(20, 20, 20, 0.6)),
+    url("../assets/images/ictuImage.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+.home {
+  position: relative;
+  min-height: 70vh;
+}
+
+/* Hero section */
+.home-intro {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.home-intro h1 {
+  font-size: 2.4rem;
+  color: #f1c40f;
+}
+
+.home-intro p {
+  max-width: 700px;
+  margin: 15px auto 0;
+  color: #f0f0f0;
+}
+
+/* Info boxes */
+.home-section {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  padding: 18px 22px;
+  width: 320px;
+  border-radius: 14px;
+  position: absolute;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.home-section h2 {
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(90deg);
+}
+
+.section-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.section-content.open {
+  display: block;
+}
+
+/* Positions */
+.position-top-left {
+  top: 40px;
+  left: 40px;
+}
+
+.position-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.position-bottom-right {
+  bottom: 40px;
+  right: 40px;
+}
+
+/* ======================================================
+   FOOTER (GLOBAL)
+====================================================== */
+.site-footer {
+  margin-top: 80px;
+  padding: 25px 15px;
+  background: #0f0f0f;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 32px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ================= BACK TO TOP BUTTON ================= */
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: #f1c40f;
+  color: #0f0f0f;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  transform: translateY(-4px);
+}
+
+#backToTop.show {
+  display: flex;
+  opacity: 1;
+}
+/* ================= RESPONSIVE: TABLET & MOBILE ================= */
+@media (max-width: 768px) {
+  /* Header */
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  /* Home hero */
+  .home-intro {
+    padding: 60px 20px 30px;
+  }
+
+  .home-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Home info boxes → stack */
+  .home {
+    position: static;
+    padding-bottom: 40px;
+  }
+
+  .home-section {
+    position: static;
+    width: auto;
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  /* Disable absolute positioning */
+  .position-top-left,
+  .position-center,
+  .position-bottom-right {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  /* About page */
+  .about-content {
+    padding: 22px;
+  }
+
+  /* Team cards */
+  .team-row {
+    gap: 18px;
+  }
+}
+/* ================= RESPONSIVE: SMALL PHONES ================= */
+@media (max-width: 480px) {
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+
+  .home-intro h1 {
+    font-size: 1.55rem;
+  }
+
+  .home-section {
+    padding: 16px;
+  }
+
+  .team-card {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  /* Footer */
+  .footer-logo img {
+    width: 26px;
+  }
+}
