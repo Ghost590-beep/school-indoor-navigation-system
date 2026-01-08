@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="floor-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Hallways -->
+    <rect x="100" y="250" width="800" height="100" class="hallway" id="hallway-main" />
+    <rect x="450" y="350" width="100" height="150" class="hallway" id="hallway-vertical" />
+
+    <!-- Rooms (top) -->
+    <rect x="100" y="80" width="200" height="150" class="room" id="lecture-room-1" />
+    <text x="200" y="160" class="label">Lecture Room 1</text>
+
+    <rect x="400" y="80" width="200" height="150" class="room" id="byrd-hall" />
+    <text x="500" y="150" class="label">Terry and Linda Byrd Hall</text>
+
+    <rect x="700" y="80" width="200" height="150" class="room" id="computer-lab" />
+    <text x="800" y="160" class="label">Computer Lab</text>
+
+    <!-- Rooms (bottom) -->
+    <rect x="100" y="380" width="250" height="150" class="room" id="chumbow-hall" />
+    <text x="225" y="460" class="label">B.S. Chumbow Hall</text>
+
+    <rect x="650" y="380" width="250" height="150" class="room" id="cisco-lab" />
+    <text x="775" y="460" class="label">Cisco Lab</text>
+
+    <!-- Restroom -->
+    <rect x="40" y="250" width="60" height="100" class="room restroom" id="restroom" />
+    <text x="70" y="310" class="label rotate">RESTROOM</text>
+
+    <!-- Stairs -->
+    <rect x="450" y="500" width="100" height="60" class="stairs" id="stairs" />
+    <text x="500" y="535" class="label">STAIRS</text>
+
+</svg>
