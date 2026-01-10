@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Campus Navigation</title>
+
+    <link rel="stylesheet" href="css/Name.css" />
+    <link rel="stylesheet" href="css/map.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <span>ICTU Nav</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="map.html">3D Map</a>
+        <a href="Main.html" class="active">2D Map</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <div class="nav-ui">
+      <div class="nav-header">
+        <h2>Campus Navigation System</h2>
+        <p class="location-label">📍 N1, Messassi, Centre</p>
+      </div>
+
+      <div class="nav-controls">
+        <input
+          type="text"
+          id="hallSearch"
+          placeholder="Search locations & navigate…"
+        />
+        <button id="hallSearchBtn">🔍 Search</button>
+
+        <svg
+          id="building-svg"
+          viewBox="0 0 1000 600"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="basement" class="floor">
+            <!-- Basement rooms, hallways, stairs -->
+            <!-- Building outline -->
+            <polygon
+              points="
+    30,240   30,365   90,365   90,545  435,545 435,570 560,570 560,545  915,545 
+    915,230  915,230  915,65   90,65   90,240   40,240
+  "
+              class="building-frame"
+            />
+
+            <!--Gym-->
+            <rect
+              x="100"
+              y="280"
+              width="300"
+              height="200"
+              class="room"
+              id="gym"
+            />
+            <text x="300" y="360" class="label">Gym</text>
+
+            <!--Cantine-->
+            <rect
+              x="610"
+              y="160"
+              width="200"
+              height="150"
+              class="room"
+              id="cantine"
+            />
+            <text x="700" y="260" class="label">Cantine</text>
+
+            <!--Pondi Hall-->
+            <rect
+              x="700"
+              y="380"
+              width="200"
+              height="150"
+              class="room"
+              id="pondi-hall"
+            />
+            <text x="780" y="460" class="label">Pondi Hall</text>
+
+            <!-- Stairs -->
+            <rect
+              x="800"
+              y="80"
+              width="100"
+              height="60"
+              class="stairs"
+              id="stairs-floor-0"
+            />
+            <text x="850" y="115" class="label">STAIRS</text>
+
+            <!--Hallway-->
+            <rect
+              x="670"
+              y="330"
+              width="230"
+              height="40"
+              class="hallway"
+              id="hallway-main"
+            />
+            <rect
+              x="425"
+              y="330"
+              width="250"
+              height="200"
+              class="hallway"
+              id="hallway-vertical"
+            />
+            <rect
+              x="105"
+              y="80"
+              width="320"
+              height="190"
+              class="hallway"
+              id="hallway-vertical"
+            />
+            <rect
+              x="425"
+              y="151"
+              width="170"
+              height="180"
+              class="hallway"
+              id="hallway-vertical"
+            />
+            <rect
+              x="590"
+              y="80"
+              width="205"
+              height="70"
+              class="hallway"
+              id="hallway-vertical"
+            />
+            <rect
+              x="425"
+              y="80"
+              width="165"
+              height="71"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <!-- Door for Pondi Hall (left wall) -->
+            <polygon points="700,440 700,470 710,470 710,440" class="door" />
+
+            <!-- Door for Cantine (top wall) -->
+            <polygon points="690,160 720,160 720,170 690,170" class="door" />
+
+            <!-- Cantine walls -->
+            <polygon points="610,160 610,310 613,310 613,160" class="wall" />
+            <!-- left -->
+            <polygon points="810,160 810,310 813,310 813,160" class="wall" />
+            <!-- right -->
+            <polygon points="610,160 810,160 810,163 610,163" class="wall" />
+            <!-- top -->
+            <polygon points="610,310 810,310 810,313 610,313" class="wall" />
+            <!-- bottom -->
+
+            <!-- Pondi Hall walls -->
+            <polygon points="700,380 700,530 703,530 703,380" class="wall" />
+            <!-- left -->
+            <polygon points="900,380 900,530 903,530 903,380" class="wall" />
+            <!-- right -->
+            <polygon points="700,380 900,380 900,383 700,383" class="wall" />
+            <!-- top -->
+          </g>
+
+          <g id="floor-2" class="floor">
+            <!-- First floor rooms -->
+            <!-- Building outline -->
+            <polygon
+              points="
+    30,240   30,365   90,365   90,545  435,545 435,570 560,570 560,545  915,545 
+    915,230  915,230  915,65   90,65   90,240   40,240
+  "
+              class="building-frame"
+            />
+
+            <rect
+              x="100"
+              y="250"
+              width="800"
+              height="100"
+              class="hallway"
+              id="hallway-main"
+            />
+            <rect
+              x="450"
+              y="350"
+              width="100"
+              height="150"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <!-- Rooms (top) -->
+            <rect
+              x="100"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="lecture-room-1"
+            />
+            <text x="200" y="160" class="label">Lecture Room 1</text>
+
+            <rect
+              x="400"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="byrd-hall"
+            />
+            <text x="500" y="150" class="label">Terry and Linda Byrd Hall</text>
+
+            <rect
+              x="700"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="computer-lab"
+            />
+            <text x="800" y="160" class="label">Computer Lab</text>
+
+            <!-- Rooms (bottom) -->
+            <rect
+              x="100"
+              y="380"
+              width="250"
+              height="150"
+              class="room"
+              id="chumbow-hall"
+            />
+            <text x="225" y="460" class="label">B.S. Chumbow Hall</text>
+
+            <rect
+              x="650"
+              y="380"
+              width="250"
+              height="150"
+              class="room"
+              id="cisco-lab"
+            />
+            <text x="775" y="460" class="label">Cisco Lab</text>
+
+            <!-- Restroom -->
+            <rect
+              x="40"
+              y="250"
+              width="60"
+              height="100"
+              class="room restroom"
+              id="restroom-2"
+            />
+            <text x="70" y="310" class="label rotate">RESTROOM</text>
+
+            <!-- Stairs -->
+            <rect
+              x="450"
+              y="500"
+              width="100"
+              height="60"
+              class="stairs"
+              id="stairs-floor-1"
+            />
+            <text x="500" y="535" class="label">STAIRS</text>
+
+            <!--Doors-->
+            <polygon points="180,230 220,230 220,240 180,240" class="door" />
+            <polygon points="480,230 520,230 520,240 480,240" class="door" />
+            <polygon points="780,230 820,230 820,240 780,240" class="door" />
+            <polygon points="350,440 360,440 360,470 350,470" class="door" />
+            <polygon points="640,440 650,440 650,470 640,470" class="door" />
+            <polygon points="110,290 100,290 100,320 110,320" class="door" />
+
+            <!--walls-->
+            <!--Lecture_room-->
+            <polygon points="103,80 100,80 100,230 103,230" class="wall" />
+            <polygon points="303,80 300,80 300,230 303,230" class="wall" />
+            <polygon points="303,227 100,227 100,230 303,230" class="wall" />
+            <polygon points="303,80 300,80 300,230 303,230" class="wall" />
+
+            <!-- Byrd Hall walls -->
+            <polygon points="403,80 400,80 400,230 403,230" class="wall" />
+            <!-- left wall -->
+            <polygon points="603,80 600,80 600,230 603,230" class="wall" />
+            <!-- right wall -->
+            <polygon points="603,227 400,227 400,230 603,230" class="wall" />
+            <!-- bottom wall -->
+
+            <!-- Computer Lab walls -->
+            <polygon points="703,80 700,80 700,230 703,230" class="wall" />
+            <!-- left wall -->
+            <polygon points="903,80 900,80 900,230 903,230" class="wall" />
+            <!-- right wall -->
+            <polygon points="903,227 700,227 700,230 903,230" class="wall" />
+            <!-- bottom wall -->
+
+            <!-- Chumbow Hall walls -->
+            <polygon points="103,380 100,380 100,530 103,530" class="wall" />
+            <!-- left wall -->
+            <polygon points="353,380 350,380 350,530 353,530" class="wall" />
+            <!-- right wall -->
+            <polygon points="353,380 100,380 100,383 353,383" class="wall" />
+            <!-- top wall -->
+
+            <!-- Cisco Lab walls -->
+            <polygon points="653,380 650,380 650,530 653,530" class="wall" />
+            <!-- left wall -->
+            <polygon points="903,380 900,380 900,530 903,530" class="wall" />
+            <!-- right wall -->
+            <polygon points="903,380 650,380 650,383 903,383" class="wall" />
+            <!-- top wall -->
+
+            <!-- Restroom walls -->
+            <polygon points="43,250 40,250 40,330 43,330" class="wall" />
+            <!-- left wall -->
+            <polygon points="103,250 100,250 100,330 103,330" class="wall" />
+            <!-- right wall -->
+            <polygon points="103,250 40,250 40,253 103,253" class="wall" />
+            <!-- top wall -->
+
+            <text
+              x="200"
+              y="120"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              📖
+            </text>
+            <text
+              x="500"
+              y="120"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              🎤
+            </text>
+            <text
+              x="800"
+              y="120"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              💻
+            </text>
+            <text
+              x="225"
+              y="420"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              🏫
+            </text>
+            <text
+              x="775"
+              y="420"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              🌐
+            </text>
+            <text
+              x="70"
+              y="280"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              🚻
+            </text>
+            <text
+              x="500"
+              y="530"
+              class="icon"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              ⬆️
+            </text>
+          </g>
+
+          <g id="floor-1" class="floor">
+            <!-- Second floor rooms -->
+            <!-- Building outline -->
+            <polygon
+              points="  90,365 90,545 915,545 915,65 90,65 90,240 "
+              class="building-frame"
+            />
+
+            <!-- Sick Bay-->
+            <rect
+              x="100"
+              y="80"
+              width="240"
+              height="120"
+              class="room"
+              id="sick-bay"
+            />
+            <text x="195" y="140" class="label">SICK BAY</text>
+            <text x="175" y="160" class="icon">🏢</text>
+
+            <!--GEORGE MBARIKA HALL-->
+            <rect
+              x="100"
+              y="210"
+              width="190"
+              height="320"
+              class="room"
+              id="george-mbarika"
+            />
+            <text x="195" y="340" class="label">GEORGE MBARIKA HALL</text>
+            <text x="175" y="360" class="icon">🏢</text>
+
+            <!--Library-->
+            <rect
+              x="570"
+              y="360"
+              width="330"
+              height="170"
+              class="room"
+              id="library"
+            />
+            <text x="715" y="470" class="label">LIBRARY</text>
+            <text x="730" y="500" class="icon">🏢</text>
+
+            <!--Admission-->
+            <rect
+              x="770"
+              y="170"
+              width="130"
+              height="70"
+              class="room"
+              id="admission"
+            />
+            <text x="835" y="210" class="label">Admission</text>
+            <text x="835" y="230" class="icon">🏢</text>
+
+            <!--marketing-->
+            <rect
+              x="570"
+              y="170"
+              width="190"
+              height="70"
+              class="room"
+              id="market"
+            />
+            <text x="635" y="210" class="label">Marketing</text>
+            <text x="635" y="230" class="icon">🏢</text>
+
+            <!--marketing-->
+            <rect
+              x="570"
+              y="90"
+              width="160"
+              height="70"
+              class="room"
+              id="market-dep"
+            />
+            <text x="638" y="110" class="label">Marketing Department</text>
+            <text x="635" y="130" class="icon">🏢</text>
+
+            <!--goerge mbarika prop-->
+            <rect
+              x="745"
+              y="90"
+              width="155"
+              height="70"
+              class="room"
+              id="george-prop"
+            />
+            <text x="798" y="110" class="label">Proprietor's rep</text>
+            <text x="755" y="130" class="icon">🏢</text>
+
+            <!--Restroom-->
+            <rect
+              x="850"
+              y="250"
+              width="50"
+              height="100"
+              class="room restroom"
+              id="restroom-1"
+            />
+            <text x="500" y="675" class="label rotate">RESTROOM</text>
+            <text x="880" y="320" class="icon">🏢</text>
+
+            <!--Hallway-->
+            <rect
+              x="310"
+              y="250"
+              width="540"
+              height="100"
+              class="hallway"
+              id="hallway-main"
+            />
+            <rect
+              x="305"
+              y="210"
+              width="250"
+              height="260"
+              class="hallway"
+              id="hallway-vertical"
+            />
+            <rect
+              x="350"
+              y="140"
+              width="205"
+              height="70"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <!-- Stairs -->
+            <rect
+              x="400"
+              y="80"
+              width="100"
+              height="60"
+              class="stairs"
+              id="stairs-floor-1"
+            />
+            <text x="455" y="125" class="label">STAIRS</text>
+            <text x="450" y="105" class="icon">⬆️</text>
+
+            <!-- Main Entrance -->
+            <rect
+              x="400"
+              y="470"
+              width="100"
+              height="60"
+              class="stairs"
+              id="main-entrance"
+            />
+            <text x="455" y="505" class="label">Entrance</text>
+            <text x="450" y="525" class="icon">⬆️</text>
+
+            <!-- Sick Bay walls -->
+            <!-- left -->
+            <polygon points="100,80 100,200 103,200 103,80" class="wall" />
+            <!-- right -->
+            <polygon points="340,80 340,200 343,200 343,80" class="wall" />
+            <!-- top -->
+            <polygon points="100,80 340,80 340,83 100,83" class="wall" />
+            <!-- bottom -->
+            <polygon points="100,200 340,200 340,203 100,203" class="wall" />
+
+            <!-- George Mbarika Hall walls -->
+            <!-- left -->
+            <polygon points="100,210 100,530 103,530 103,210" class="wall" />
+            <!-- right -->
+            <polygon points="290,210 290,530 293,530 293,210" class="wall" />
+            <!-- top -->
+            <polygon points="100,210 290,210 290,213 100,213" class="wall" />
+            <!-- bottom -->
+            <polygon points="100,530 290,530 290,533 100,533" class="wall" />
+
+            <!-- Library walls -->
+            <!-- left -->
+            <polygon points="570,360 570,530 573,530 573,360" class="wall" />
+            <!-- right -->
+            <polygon points="900,360 900,530 903,530 903,360" class="wall" />
+            <!-- top -->
+            <polygon points="570,360 900,360 900,363 570,363" class="wall" />
+            <!-- bottom -->
+            <polygon points="570,530 900,530 900,533 570,533" class="wall" />
+
+            <!-- Admission walls -->
+            <polygon points="770,170 770,240 773,240 773,170" class="wall" />
+            <polygon points="900,170 900,240 903,240 903,170" class="wall" />
+            <polygon points="770,170 900,170 900,173 770,173" class="wall" />
+            <polygon points="770,240 900,240 900,243 770,243" class="wall" />
+
+            <!-- Marketing walls -->
+            <polygon points="570,170 570,240 573,240 573,170" class="wall" />
+            <polygon points="760,170 760,240 763,240 763,170" class="wall" />
+            <polygon points="570,170 760,170 760,173 570,173" class="wall" />
+            <polygon points="570,240 760,240 760,243 570,243" class="wall" />
+
+            <!-- Marketing Department walls -->
+            <polygon points="570,90 570,160 573,160 573,90" class="wall" />
+            <polygon points="730,90 730,160 733,160 733,90" class="wall" />
+            <polygon points="570,90 730,90 730,93 570,93" class="wall" />
+            <polygon points="570,160 730,160 730,163 570,163" class="wall" />
+
+            <!-- Proprietor's Rep walls -->
+            <polygon points="745,90 745,160 748,160 748,90" class="wall" />
+            <polygon points="900,90 900,160 903,160 903,90" class="wall" />
+            <polygon points="745,90 900,90 900,93 745,93" class="wall" />
+            <polygon points="745,160 900,160 900,163 745,163" class="wall" />
+
+            <!-- Restroom walls -->
+            <polygon points="850,250 850,350 853,350 853,250" class="wall" />
+            <polygon points="900,250 900,350 903,350 903,250" class="wall" />
+            <polygon points="850,250 900,250 900,253 850,253" class="wall" />
+            <polygon points="850,350 900,350 900,353 850,353" class="wall" />
+
+            <!-- Sick Bay door (bottom wall) -->
+            <polygon points="190,200 220,200 220,205 190,205" class="door" />
+            <!-- George Mbarika Hall door (right wall) -->
+            <polygon points="290,340 295,340 295,370 290,370" class="door" />
+            <!-- Library door (top wall) -->
+            <polygon points="700,360 730,360 730,365 700,365" class="door" />
+            <!-- Admission door (left wall) -->
+            <polygon points="770,190 775,190 775,220 770,220" class="door" />
+            <!-- Marketing door (bottom wall) -->
+            <polygon points="630,240 660,240 660,245 630,245" class="door" />
+            <!-- Marketing Department door (bottom wall) -->
+            <polygon points="620,160 650,160 650,165 620,165" class="door" />
+            <!-- Proprietor's Rep door (bottom wall) -->
+            <polygon points="780,160 810,160 810,165 780,165" class="door" />
+            <!-- Restroom door (left wall) -->
+            <polygon points="850,280 855,280 855,310 850,310" class="door" />
+          </g>
+
+          <g id="floor-3" class="floor">
+            <!-- Third floor rooms -->
+            <!-- Building outline -->
+            <polygon
+              points="30,240 30,365 90,365 90,545 915,545 915,65 90,65 90,240 40,240"
+              class="building-frame"
+            />
+
+            <!-- Rooms (top) -->
+            <rect
+              x="100"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="game-hall"
+            />
+            <text x="200" y="160" class="label">Game Hall</text>
+
+            <!--Head of department-->
+            <rect
+              x="100"
+              y="365"
+              width="120"
+              height="70"
+              class="room"
+              id="head-dep"
+            />
+            <text x="150" y="410" class="label">Head of department</text>
+            <text x="130" y="390" class="icon">📄</text>
+
+            <!--Dean ICT faculty-->
+            <rect
+              x="100"
+              y="445"
+              width="120"
+              height="85"
+              class="room"
+              id="dean-faculty"
+            />
+            <text x="160" y="510" class="label">Dean ICT faculty</text>
+            <text x="140" y="480" class="icon">📦</text>
+
+            <!--Administrative assistant-->
+            <rect
+              x="285"
+              y="365"
+              width="120"
+              height="70"
+              class="room"
+              id="admin-ass"
+            />
+            <text x="340" y="410" class="label">Administrative assistant</text>
+            <text x="320" y="390" class="icon">📎</text>
+
+            <!--Dean BMS Education Faculty-->
+            <rect
+              x="285"
+              y="445"
+              width="120"
+              height="85"
+              class="room"
+              id="BMS-faculty"
+            />
+            <text x="340" y="490" class="label">Dean BMS Faculty</text>
+
+            <rect
+              x="400"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="french-hall-1"
+            />
+            <text x="500" y="150" class="label">French Hall 1</text>
+
+            <rect
+              x="700"
+              y="80"
+              width="200"
+              height="150"
+              class="room"
+              id="eric-hall"
+            />
+            <text x="800" y="160" class="label">Eric Mbarika hall</text>
+
+            <rect
+              x="650"
+              y="380"
+              width="250"
+              height="150"
+              class="room"
+              id="french-hall"
+            />
+            <text x="775" y="460" class="label">French Hall 2</text>
+
+            <!-- Restroom -->
+            <rect
+              x="40"
+              y="250"
+              width="60"
+              height="100"
+              class="room restroom"
+              id="restroom-3"
+            />
+            <text x="70" y="310" class="label rotate">RESTROOM</text>
+
+            <!-- Stairs -->
+            <rect
+              x="450"
+              y="500"
+              width="100"
+              height="60"
+              class="stairs"
+              id="stairs-floor-3"
+            />
+            <text x="500" y="535" class="label">STAIRS</text>
+
+            <!--Hallway-->
+            <rect
+              x="100"
+              y="250"
+              width="800"
+              height="100"
+              class="hallway"
+              id="hallway-main"
+            />
+            <rect
+              x="450"
+              y="350"
+              width="100"
+              height="150"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <rect
+              x="232"
+              y="350"
+              width="40"
+              height="180"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <!-- Game Hall walls -->
+            <polygon points="100,80 100,230 103,230 103,80" class="wall" />
+            <!-- left -->
+            <polygon points="300,80 300,230 303,230 303,80" class="wall" />
+            <!-- right -->
+            <polygon points="100,230 300,230 300,233 100,233" class="wall" />
+            <!-- bottom -->
+
+            <!-- Transcript Room walls -->
+            <polygon points="100,365 100,435 103,435 103,365" class="wall" />
+            <!-- left -->
+            <polygon points="220,365 220,435 223,435 223,365" class="wall" />
+            <!-- right -->
+            <polygon points="100,365 220,365 220,368 100,368" class="wall" />
+            <!-- top -->
+
+            <!-- Store Room walls -->
+            <polygon points="100,445 100,530 103,530 103,445" class="wall" />
+            <!-- left -->
+            <polygon points="220,445 220,530 223,530 223,445" class="wall" />
+            <!-- right -->
+            <polygon points="100,445 220,445 220,448 100,448" class="wall" />
+            <!-- top -->
+
+            <!-- ICT Faculty walls -->
+            <polygon points="285,365 285,435 288,435 288,365" class="wall" />
+            <!-- left -->
+            <polygon points="405,365 405,435 408,435 408,365" class="wall" />
+            <!-- right -->
+            <polygon points="285,365 405,365 405,368 285,368" class="wall" />
+            <!-- top -->
+
+            <!-- Francophone Rector walls -->
+            <polygon points="285,445 285,530 288,530 288,445" class="wall" />
+            <!-- left -->
+            <polygon points="405,445 405,530 408,530 408,445" class="wall" />
+            <!-- right -->
+            <polygon points="285,445 405,445 405,448 285,448" class="wall" />
+            <!-- top -->
+
+            <!-- Byrd Hall walls -->
+            <polygon points="400,80 400,230 403,230 403,80" class="wall" />
+            <!-- left -->
+            <polygon points="600,80 600,230 603,230 603,80" class="wall" />
+            <!-- right -->
+            <polygon points="400,230 600,230 600,233 400,233" class="wall" />
+            <!-- bottom -->
+
+            <!-- Computer Lab walls -->
+            <polygon points="700,80 700,230 703,230 703,80" class="wall" />
+            <!-- left -->
+            <polygon points="900,80 900,230 903,230 903,80" class="wall" />
+            <!-- right -->
+            <polygon points="700,230 900,230 900,233 700,233" class="wall" />
+            <!-- bottom -->
+
+            <!-- French Hall walls -->
+            <polygon points="650,380 650,530 653,530 653,380" class="wall" />
+            <!-- left -->
+            <polygon points="900,380 900,530 903,530 903,380" class="wall" />
+            <!-- right -->
+            <polygon points="650,380 900,380 900,383 650,383" class="wall" />
+            <!-- top -->
+
+            <!-- Restroom walls -->
+            <polygon points="40,250 40,350 43,350 43,250" class="wall" />
+            <!-- left -->
+            <polygon points="100,250 100,350 103,350 103,250" class="wall" />
+            <!-- right -->
+            <polygon points="40,250 100,250 100,253 40,253" class="wall" />
+            <!-- top -->
+
+            <!-- Game Hall door (bottom wall) -->
+            <polygon points="180,230 210,230 210,235 180,235" class="door" />
+            <!-- French Hall 1 door (bottom wall) -->
+            <polygon points="480,230 510,230 510,235 480,235" class="door" />
+            <!-- Eric Mbarika Hall door (bottom wall) -->
+            <polygon points="780,230 810,230 810,235 780,235" class="door" />
+            <!-- French Hall 2 door (top wall) -->
+            <polygon points="740,380 770,380 770,385 740,385" class="door" />
+            <!-- Administrative Assistant door (left wall) -->
+            <polygon points="285,380 290,380 290,410 285,410" class="door" />
+            <!-- Dean BMS Faculty door (left wall) -->
+            <polygon points="285,470 290,470 290,500 285,500" class="door" />
+            <!-- Dean ICT Faculty door (right wall) -->
+            <polygon points="220,470 225,470 225,500 220,500" class="door" />
+            <!-- Head of Department door (right wall) -->
+            <polygon points="220,380 225,380 225,410 220,410" class="door" />
+          </g>
+
+          <g id="floor-4" class="floor">
+            <!-- Fourth floor rooms -->
+
+            <!-- Building outline -->
+            <polygon
+              points="30,240 30,365 90,365 90,545 915,545 915,65 90,65 90,240 40,240"
+              class="building-frame"
+            />
+            <!-- Vice-Chancellor-->
+            <rect
+              x="100"
+              y="80"
+              width="110"
+              height="150"
+              class="room"
+              id="vc-office"
+            />
+            <text x="655" y="-44" class="label rotate">VC's OFFICE</text>
+            <text x="175" y="160" class="icon">🏢</text>
+
+            <!--PA to the VC-->
+            <rect
+              x="220"
+              y="80"
+              width="120"
+              height="70"
+              class="room"
+              id="pa-vc"
+            />
+            <text x="280" y="140" class="label">P.A. TO THE VC</text>
+            <text x="280" y="100" class="icon">📝</text>
+
+            <!--Admin Assitant-->
+            <rect
+              x="220"
+              y="160"
+              width="120"
+              height="70"
+              class="room"
+              id="admin-assistant"
+            />
+            <text x="280" y="190" class="label">ADMIN ASS.TO VC</text>
+            <text x="280" y="220" class="icon">📋</text>
+
+            <!--Conference Hall-->
+            <rect
+              x="350"
+              y="80"
+              width="220"
+              height="70"
+              class="room"
+              id="conference-hall"
+            />
+            <text x="455" y="120" class="label">CONFERENCE HALL</text>
+            <text x="445" y="95" class="icon">🏛️</text>
+
+            <!--Director of Marketting-->
+            <rect
+              x="580"
+              y="80"
+              width="120"
+              height="70"
+              class="room"
+              id="marketing-dir"
+            />
+            <text x="640" y="120" class="label">DIR. OF MARK.</text>
+            <text x="640" y="100" class="icon">📣</text>
+
+            <!--//-->
+            <rect
+              x="580"
+              y="160"
+              width="120"
+              height="70"
+              class="room"
+              id="empty"
+            />
+            <text x="640" y="200" class="label"></text>
+            <text x="640" y="180" class="icon"></text>
+
+            <!-- Deputy vice chancellor-->
+            <rect
+              x="710"
+              y="80"
+              width="190"
+              height="150"
+              class="room"
+              id="vc-office"
+            />
+            <text x="805" y="160" class="label">DEPUTY VICE CHANCELLOR</text>
+            <text x="770" y="140" class="icon">🏢</text>
+
+            <!-- Restroom -->
+            <rect
+              x="40"
+              y="250"
+              width="50"
+              height="100"
+              class="room restroom"
+              id="restroom-4"
+            />
+            <text x="505" y="-120" class="label rotate">RESTROOMS</text>
+            <text x="50" y="280" class="icon">🚻</text>
+
+            <!-- Transcript Room-->
+            <rect
+              x="100"
+              y="365"
+              width="120"
+              height="70"
+              class="room"
+              id="transcript-store"
+            />
+            <text x="150" y="410" class="label">TRANS STR.</text>
+            <text x="130" y="390" class="icon">📄</text>
+
+            <!--Store-->
+            <rect
+              x="100"
+              y="445"
+              width="120"
+              height="85"
+              class="room"
+              id="store-room"
+            />
+            <text x="160" y="510" class="label">Store Room</text>
+            <text x="140" y="480" class="icon">📦</text>
+
+            <!--P.A to the rector-->
+            <rect
+              x="285"
+              y="365"
+              width="120"
+              height="70"
+              class="room"
+              id="pa-rector"
+            />
+            <text x="340" y="410" class="label">P.A. to Rector</text>
+            <text x="320" y="390" class="icon">📎</text>
+
+            <!--Fracophone Rector-->
+            <rect
+              x="285"
+              y="445"
+              width="120"
+              height="85"
+              class="room"
+              id="rector-francophone"
+            />
+            <text x="340" y="490" class="label">Franc. Rector</text>
+
+            <!--Finance-->
+            <rect
+              x="580"
+              y="365"
+              width="120"
+              height="70"
+              class="room"
+              id="finance-office"
+            />
+            <text x="640" y="410" class="label">Finance Office</text>
+            <text x="630" y="390" class="icon">💰</text>
+
+            <!--Bursary-->
+            <rect
+              x="580"
+              y="445"
+              width="120"
+              height="85"
+              class="room"
+              id="bursary"
+            />
+            <text x="640" y="490" class="label">Bursary</text>
+            <text x="630" y="510" class="icon">📊</text>
+
+            <!--Quality control-->
+            <rect
+              x="710"
+              y="365"
+              width="185"
+              height="160"
+              class="room"
+              id="quality-control"
+            />
+            <text x="780" y="460" class="label">Quality Control</text>
+            <text x="750" y="420" class="icon">✅</text>
+
+            <!-- Stairs -->
+            <rect
+              x="440"
+              y="470"
+              width="100"
+              height="60"
+              class="stairs"
+              id="stairs-floor-4"
+            />
+            <text x="495" y="515" class="label">STAIRS</text>
+            <text x="490" y="495" class="icon">⬆️</text>
+
+            <!--Hallway-->
+            <rect
+              x="100"
+              y="250"
+              width="800"
+              height="100"
+              class="hallway"
+              id="hallway-main"
+            />
+            <rect
+              x="440"
+              y="350"
+              width="100"
+              height="120"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <rect
+              x="232"
+              y="350"
+              width="40"
+              height="180"
+              class="hallway"
+              id="hallway-vertical"
+            />
+
+            <!-- Vice-Chancellor walls -->
+            <polygon points="210,80 210,230 213,230 213,80" class="wall" />
+            <!-- right -->
+            <polygon points="100,80 210,80 210,83 100,83" class="wall" />
+            <!-- top -->
+            <polygon points="100,230 210,230 210,233 100,233" class="wall" />
+            <!-- bottom -->
+
+            <!-- PA to VC walls -->
+            <polygon points="340,80 340,150 343,150 343,80" class="wall" />
+            <polygon points="220,150 340,150 340,153 220,153" class="wall" />
+
+            <!-- Admin Assistant walls -->
+            <polygon points="340,160 340,230 343,230 343,160" class="wall" />
+            <polygon points="220,230 340,230 340,233 220,233" class="wall" />
+
+            <!-- Conference Hall walls -->
+            <polygon points="350,80 350,150 353,150 353,80" class="wall" />
+            <polygon points="570,80 570,150 573,150 573,80" class="wall" />
+            <polygon points="350,150 570,150 570,153 350,153" class="wall" />
+
+            <!-- Director of Marketing walls -->
+            <polygon points="580,80 580,150 583,150 583,80" class="wall" />
+            <polygon points="700,80 700,150 703,150 703,80" class="wall" />
+            <polygon points="580,150 700,150 700,153 580,153" class="wall" />
+
+            <!-- Empty room walls -->
+            <polygon points="580,160 580,230 583,230 583,160" class="wall" />
+            <polygon points="580,230 700,230 700,233 580,233" class="wall" />
+
+            <!-- Deputy VC walls -->
+            <polygon points="710,80 710,230 713,230 713,80" class="wall" />
+            <polygon points="900,80 900,230 903,230 903,80" class="wall" />
+            <polygon points="710,230 900,230 900,233 710,233" class="wall" />
+
+            <!-- Restroom walls -->
+            <polygon points="40,250 40,350 43,350 43,250" class="wall" />
+            <polygon points="90,250 90,350 93,350 93,250" class="wall" />
+            <polygon points="40,250 90,250 90,253 40,253" class="wall" />
+
+            <!-- Transcript Room walls -->
+            <polygon points="100,365 100,435 103,435 103,365" class="wall" />
+            <polygon points="220,365 220,435 223,435 223,365" class="wall" />
+            <polygon points="100,365 220,365 220,368 100,368" class="wall" />
+
+            <!-- Store Room walls -->
+            <polygon points="100,445 100,530 103,530 103,445" class="wall" />
+            <polygon points="220,445 220,530 223,530 223,445" class="wall" />
+            <polygon points="100,445 220,445 220,448 100,448" class="wall" />
+
+            <!-- PA to Rector walls -->
+            <polygon points="285,365 285,435 288,435 288,365" class="wall" />
+            <polygon points="405,365 405,435 408,435 408,365" class="wall" />
+            <polygon points="285,365 405,365 405,368 285,368" class="wall" />
+
+            <!-- Francophone Rector walls -->
+            <polygon points="285,445 285,530 288,530 288,445" class="wall" />
+            <polygon points="405,445 405,530 408,530 408,445" class="wall" />
+            <polygon points="285,445 405,445 405,448 285,448" class="wall" />
+
+            <!-- Finance Office walls -->
+            <polygon points="580,365 580,435 583,435 583,365" class="wall" />
+            <polygon points="700,365 700,435 703,435 703,365" class="wall" />
+            <polygon points="580,365 700,365 700,368 580,368" class="wall" />
+            <polygon points="580,435 700,435 700,438 580,438" class="wall" />
+
+            <!-- Bursary walls -->
+            <polygon points="580,445 580,530 583,530 583,445" class="wall" />
+            <polygon points="700,445 700,530 703,530 703,445" class="wall" />
+            <polygon points="580,445 700,445 700,448 580,448" class="wall" />
+
+            <!-- Quality Control walls -->
+            <polygon points="710,365 710,525 713,525 713,365" class="wall" />
+            <polygon points="895,365 895,525 898,525 898,365" class="wall" />
+            <polygon points="710,365 895,365 895,368 710,368" class="wall" />
+
+            <!-- VC Office door (right wall) -->
+            <polygon points="205,150 210,150 210,180 205,180" class="door" />
+            <!-- PA to VC door (bottom wall) -->
+            <polygon points="260,150 280,150 280,155 260,155" class="door" />
+            <!-- Admin Assistant door (right wall) -->
+            <polygon points="335,180 340,180 340,210 335,210" class="door" />
+            <!-- Conference Hall doors (bottom wall) -->
+            <polygon points="400,150 430,150 430,155 400,155" class="door" />
+            <polygon points="500,150 530,150 530,155 500,155" class="door" />
+            <!-- Marketing Director door (bottom wall) -->
+            <polygon points="620,150 650,150 650,155 620,155" class="door" />
+            <!-- Deputy VC door (left wall) -->
+            <polygon points="710,120 715,120 715,150 710,150" class="door" />
+            <!-- Finance Office door (top wall) -->
+            <polygon points="610,365 640,365 640,370 610,370" class="door" />
+            <!-- Quality Control door (left wall) -->
+            <polygon points="710,420 715,420 715,450 710,450" class="door" />
+            <!-- Bursary door (top wall) -->
+            <polygon points="610,445 640,445 640,450 610,450" class="door" />
+            <!-- Store Room door (right wall) -->
+            <polygon points="215,470 220,470 220,500 215,500" class="door" />
+            <!-- Restroom door (right wall) -->
+            <polygon points="85,280 90,280 90,310 85,310" class="door" />
+            <!-- Transcript Office door (right wall) -->
+            <polygon points="215,380 220,380 220,410 215,410" class="door" />
+            <!-- PA to Rector door (left wall) -->
+            <polygon points="285,380 290,380 290,410 285,410" class="door" />
+            <!-- Francophone Rector door (left wall) -->
+            <polygon points="285,470 290,470 290,500 285,500" class="door" />
+          </g>
+        </svg>
+
+        <select id="floorSelect">
+          <option value="floor-1">Floor 1</option>
+          <option value="floor-2">Floor 2</option>
+          <option value="floor-3">Floor 3</option>
+          <option value="floor-4">Floor 4</option>
+          <option value="basement">Basement</option>
+        </select>
+
+        <div class="start-end-group">
+          <input type="text" id="startRoom" placeholder="Start location…" />
+          <input type="text" id="endRoom" placeholder="End location…" />
+          <button id="navigateBtn">🚀 Navigate</button>
+        </div>
+
+        <div class="action-buttons">
+          <button id="rotateBtn">🔄 Rotate Floor</button>
+          <button id="schoolMarker">🏫 Indoor Map</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

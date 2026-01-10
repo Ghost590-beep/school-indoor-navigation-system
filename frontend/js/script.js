@@ -1,16 +1,65 @@
 // ========= Floor graphs =========
 const floors = {
   // Minimal Floor 1 (add more nodes later)
-  "floor-1": {
-    nodes: {
-      "stairs-floor-1": { x: 120, y: 520 },  // approximate
-      "hall-floor-1": { x: 200, y: 500 }     // simple waypoint
-    },
-    graph: {
-      "stairs-floor-1": ["hall-floor-1"],
-      "hall-floor-1": ["stairs-floor-1"]
-    }
+ "floor-1": {
+  nodes: {
+    // Doors
+    "sick-bay":        { x: 205, y: 200 },
+    "george-mbarika":  { x: 290, y: 355 },
+    "library":         { x: 715, y: 360 },
+    "admission":       { x: 770, y: 205 },
+    "market":          { x: 645, y: 240 },
+    "market-dep":      { x: 635, y: 160 },
+    "george-prop":     { x: 795, y: 160 },
+    "restroom-1":      { x: 850, y: 295 },
+
+    // Stairs + Entrance
+    "stairs-floor-1":  { x: 450, y: 110 },
+    "main-entrance":   { x: 450, y: 500 },
+
+    // Hallways (use SVG IDs directly)
+    "hallway-main":    { x: 550, y: 300 },
+    "hallway-vertical":{ x: 400, y: 300 }
   },
+
+  graph: {
+  // Rooms → hallways
+  "sick-bay": ["hallway-vertical"],
+  "george-mbarika": ["hallway-main"],
+  "library": ["hallway-main"],
+  "admission": ["hallway-main"],
+  "market": ["hallway-main"],
+  "market-dep": ["hallway-vertical"],
+  "george-prop": ["hallway-vertical"],
+  "restroom-1": ["hallway-main"],
+
+  // Stairs + entrance
+  "stairs-floor-1": ["hallway-vertical"],
+  "main-entrance": ["hallway-main"],
+
+  // Hallways → EVERYTHING THEY TOUCH
+  "hallway-main": [
+    "george-mbarika",
+    "library",
+    "admission",
+    "market",
+    "restroom-1",
+    "main-entrance",
+    "hallway-vertical"
+  ],
+
+  "hallway-vertical": [
+    "sick-bay",
+    "market-dep",
+    "george-prop",
+    "stairs-floor-1",
+    "hallway-main"
+  ]
+}
+
+},
+
+
 
   // Your full Floor 2
   "floor-2": {
@@ -36,7 +85,7 @@ const floors = {
       "lecture-room-1": ["hall-main-left"],
       "byrd-hall": ["hall-main-center"],
       "computer-lab": ["hall-main-right"],
-      "restroom-2": ["hall-main-left"],
+      "restroom": ["hall-main-left"],
       "chumbow-hall": ["hall-vertical-mid"],
       "cisco-lab": ["hall-vertical-mid"],
       "stairs-floor-2": ["hall-vertical-bottom"],
@@ -52,15 +101,112 @@ const floors = {
 
   // Minimal Floor 3 to support cross-floor traversal
   "floor-3": {
-    nodes: {
-      "stairs-floor-3": { x: 500, y: 300 },   // center placeholder
-      "hall-floor-3": { x: 520, y: 320 }
-    },
-    graph: {
-      "stairs-floor-3": ["hall-floor-3"],
-      "hall-floor-3": ["stairs-floor-3"]
-    }
+  nodes: {
+    // ===== ROOM DOORS =====
+    "game-hall": { x: 200, y: 235 },
+    "french-hall-1": { x: 500, y: 235 },
+    "eric-hall": { x: 800, y: 235 },
+    "french-hall": { x: 775, y: 455 },
+
+    "head-dep": { x: 160, y: 350 },
+    "admin-ass": { x: 345, y: 350 },
+    "dean-faculty": { x: 160, y: 445 },
+    "BMS-faculty": { x: 345, y: 445 },
+
+    "restroom-3": { x: 100, y: 305 },
+
+    // ===== STAIRS =====
+    "stairs-floor-3": { x: 500, y: 530 },
+
+    // ===== MAIN HORIZONTAL HALL =====
+    "hall-main-left": { x: 200, y: 300 },
+    "hall-main-center": { x: 500, y: 300 },
+    "hall-main-right": { x: 800, y: 300 },
+
+    // ===== CENTER VERTICAL HALL =====
+    "hall-vert-main-top": { x: 500, y: 350 },
+    "hall-vert-main-mid": { x: 500, y: 420 },
+    "hall-vert-main-bottom": { x: 500, y: 500 },
+
+    // ===== LEFT VERTICAL HALL =====
+    "hall-vert-left-top": { x: 252, y: 350 },
+    "hall-vert-left-mid": { x: 252, y: 435 },
+    "hall-vert-left-bottom": { x: 252, y: 510 }
   },
+
+  graph: {
+    // ===== ROOMS → HALLS =====
+    "game-hall": ["hall-main-left"],
+    "french-hall-1": ["hall-main-center"],
+    "eric-hall": ["hall-main-right"],
+    "french-hall": ["hall-vert-main-mid"],
+
+    "head-dep": ["hall-vert-left-top"],
+    "admin-ass": ["hall-vert-left-top"],
+    "dean-faculty": ["hall-vert-left-mid"],
+    "BMS-faculty": ["hall-vert-left-mid"],
+
+    "restroom-3": ["hall-main-left"],
+    "stairs-floor-3": ["hall-vert-main-bottom"],
+
+    // ===== MAIN HALLWAY =====
+    "hall-main-left": [
+      "hall-main-center",
+      "game-hall",
+      "restroom-3",
+      "hall-vert-left-top"
+    ],
+
+    "hall-main-center": [
+      "hall-main-left",
+      "hall-main-right",
+      "french-hall-1",
+      "hall-vert-main-top"
+    ],
+
+    "hall-main-right": [
+      "hall-main-center",
+      "eric-hall"
+    ],
+
+    // ===== CENTER VERTICAL =====
+    "hall-vert-main-top": [
+      "hall-main-center",
+      "hall-vert-main-mid"
+    ],
+
+    "hall-vert-main-mid": [
+      "hall-vert-main-top",
+      "hall-vert-main-bottom",
+      "french-hall"
+    ],
+
+    "hall-vert-main-bottom": [
+      "hall-vert-main-mid",
+      "stairs-floor-3"
+    ],
+
+    // ===== LEFT VERTICAL =====
+    "hall-vert-left-top": [
+      "hall-main-left",
+      "hall-vert-left-mid",
+      "head-dep",
+      "admin-ass"
+    ],
+
+    "hall-vert-left-mid": [
+      "hall-vert-left-top",
+      "hall-vert-left-bottom",
+      "dean-faculty",
+      "BMS-faculty"
+    ],
+
+    "hall-vert-left-bottom": [
+      "hall-vert-left-mid",
+       "hall-main-left"
+    ]
+  }
+},
 
   // Your full Floor 4
   "floor-4": {
@@ -135,16 +281,46 @@ const floors = {
   },
 
   // Minimal Basement
-  "basement": {
-    nodes: {
-      "stairs-basement": { x: 140, y: 560 },
-      "hall-basement": { x: 160, y: 540 }
-    },
-    graph: {
-      "stairs-basement": ["hall-basement"],
-      "hall-basement": ["stairs-basement"]
-    }
-  }
+ "basement": {
+  nodes: {
+    "gym": { x: 250, y: 380 },
+    "cantine": { x: 710, y: 235 },
+    "pondi-hall": { x: 800, y: 455 },
+
+    "door-gym": { x: 400, y: 380 },       // approximate left wall door
+    "door-cantine": { x: 705, y: 165 },   // top wall door
+    "door-pondi": { x: 705, y: 455 },     // left wall door
+
+    "stairs-basement": { x: 850, y: 110 },
+
+    // hallway waypoints
+    "hall-basement-top": { x: 500, y: 120 },
+    "hall-basement-main": { x: 780, y: 350 },
+    "hall-basement-vertical": { x: 550, y: 430 },
+    "hall-basement-left": { x: 250, y: 180 }
+  },
+graph: {
+  // Rooms connect via their doors
+  "gym": ["door-gym"],
+  "cantine": ["door-cantine"],
+  "pondi-hall": ["door-pondi"],
+
+  // Doors connect to hallways
+  "door-gym": ["gym", "hall-basement-left"],
+  "door-cantine": ["cantine", "hall-basement-top"],
+  "door-pondi": ["pondi-hall", "hall-basement-vertical"],
+
+  // Stairs connect to top hallway
+  "stairs-basement": ["hall-basement-top"],
+
+  // Hallway connectivity
+  "hall-basement-top": ["door-cantine", "stairs-basement", "hall-basement-main", "hall-basement-left"],
+  "hall-basement-main": ["hall-basement-top", "hall-basement-vertical"],
+  "hall-basement-vertical": ["hall-basement-main", "door-pondi"],
+  "hall-basement-left": ["hall-basement-top", "door-gym"]
+}
+ }
+
 };
 
 // ========= Cross-floor links via stairs =========
@@ -175,6 +351,7 @@ function getNodeFloor(nodeId) {
   }
   return null;
 }
+
 
 // ========= Multi-floor BFS =========
 function bfsMultiFloor(start, end) {
@@ -211,61 +388,52 @@ function bfsMultiFloor(start, end) {
 
 // ========= Multi-floor drawing (per-floor segments) =========
 function drawPathMultiFloor(path) {
+  // Clear old drawings
   document.querySelectorAll(".nav-path, .nav-node").forEach(el => el.remove());
   if (!path || path.length < 2) return;
 
-  // Split into per-floor segments
-  const segments = [];
-  let seg = [path[0]];
-  for (let i = 1; i < path.length; i++) {
-    const pf = getNodeFloor(path[i - 1]);
-    const cf = getNodeFloor(path[i]);
-    if (pf && cf && pf === cf) {
-      seg.push(path[i]);
-    } else {
-      segments.push(seg);
-      seg = [path[i]];
-    }
+  const currentFloor = getCurrentFloor();
+  const svgGroup = document.getElementById(currentFloor);
+  if (!svgGroup) return;
+
+  // Keep ONLY nodes that belong to the current floor
+  const floorPath = path.filter(id => getNodeFloor(id) === currentFloor);
+
+  if (floorPath.length < 2) {
+    console.warn("Path exists, but not on this floor");
+    return;
   }
-  if (seg.length) segments.push(seg);
 
-  // Draw each segment on its floor
-  segments.forEach(segment => {
-    const floorId = getNodeFloor(segment[0]);
-    if (!floorId) return;
-    if (getCurrentFloor() !== floorId) setCurrentFloor(floorId);
+  // Build polyline points
+  const points = floorPath
+    .map(id => {
+      const node = floors[currentFloor].nodes[id];
+      return node ? `${node.x},${node.y}` : null;
+    })
+    .filter(Boolean)
+    .join(" ");
 
-    const svgGroup = document.getElementById(floorId);
-    const points = segment
-      .map(id => {
-        const node = floors[floorId].nodes[id];
-        return node ? `${node.x},${node.y}` : null;
-      })
-      .filter(Boolean)
-      .join(" ");
+  if (points.split(" ").length < 2) return;
 
-    // Need at least 2 points to draw a line
-    const numPoints = points.trim().split(/\s+/).length;
-    if (numPoints >= 2) {
-      const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-      polyline.setAttribute("points", points);
-      polyline.setAttribute("class", "nav-path");
-      svgGroup.appendChild(polyline);
-    }
+  // Draw path line
+  const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+  polyline.setAttribute("points", points);
+  polyline.setAttribute("class", "nav-path");
+  svgGroup.appendChild(polyline);
 
-    // Draw nodes
-    segment.forEach(id => {
-      const node = floors[floorId].nodes[id];
-      if (!node) return;
-      const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      c.setAttribute("cx", node.x);
-      c.setAttribute("cy", node.y);
-      c.setAttribute("r", 4);
-      c.setAttribute("class", "nav-node");
-      svgGroup.appendChild(c);
-    });
+  // Draw nodes
+  floorPath.forEach(id => {
+    const node = floors[currentFloor].nodes[id];
+    if (!node) return;
+    const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("cx", node.x);
+    c.setAttribute("cy", node.y);
+    c.setAttribute("r", 4);
+    c.setAttribute("class", "nav-node");
+    svgGroup.appendChild(c);
   });
 }
+
 
 // ========= Name normalization =========
 const baseNameMap = {
@@ -321,7 +489,40 @@ const roomMap = {
   "francophone rector": "rector-francophone",
   "finance office": "finance-office",
   "bursary": "bursary",
-  "quality control": "quality-control"
+  "quality control": "quality-control",
+
+//Basement
+  "gym": "gym",
+  "cantine": "cantine",
+  "pondi hall": "pondi-hall",
+  // … keep existing mappings
+
+  // Floor 1
+  "sick bay": "sick-bay",
+  "george mbarika hall": "george-mbarika",
+  "library": "library",
+  "admission": "admission",
+  "marketing": "market",
+  "marketing department": "market-dep",
+  "proprietor's rep": "george-prop",
+  "restroom floor 1": "restroom-1",
+  "stairs floor 1": "stairs-floor-1",
+  "main entrance": "main-entrance",
+  "hallway main": "hallway-main",
+  "hallway vertical": "hallway-vertical",
+
+  // Floor 3
+"game hall": "game-hall",
+"french hall 1": "french-hall-1",
+"french hall 2": "french-hall",
+"eric mbarika hall": "eric-hall",
+"head of department": "head-dep",
+"dean ict faculty": "dean-faculty",
+"administrative assistant": "admin-ass",
+"dean bms faculty": "BMS-faculty",
+"restroom floor 3": "restroom-3"
+
+
 };
 
 const hallMap = {
@@ -348,19 +549,31 @@ const hallMap = {
 
 };
 
-
 function normalize(input) {
+  if (!input) return null;
+
   const key = input.trim().toLowerCase();
 
-  // Dynamic stairs mapping to current floor
+  // Handle stairs dynamically
   if (key === "stairs") {
     const curr = getCurrentFloor();
     if (curr === "basement") return "stairs-basement";
-    return `stairs-${curr}`; // e.g., "stairs-floor-4"
+    return `stairs-${curr}`;
   }
 
-  return baseNameMap[key] || key;
+  // 1️⃣ Room names
+  if (roomMap[key]) return roomMap[key];
+
+  // 2️⃣ Base aliases
+  if (baseNameMap[key]) return baseNameMap[key];
+
+  // 3️⃣ Hallways
+  if (hallMap[key]) return hallMap[key];
+
+  // 4️⃣ Assume user typed exact node ID
+  return key;
 }
+
 
 // ========= Controls =========
 document.getElementById("navigateBtn").addEventListener("click", () => {
@@ -426,5 +639,6 @@ document.getElementById("schoolMarker").addEventListener("click", () => {
   document.getElementById("building-svg").style.display = "block";
   showFloor("floor-1");
 });
+
 
 

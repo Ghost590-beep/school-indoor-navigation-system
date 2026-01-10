@@ -163,3 +163,26 @@ body {
   color: #f1c40f;
   margin-top: 6px;
 }
+
+.map-view {
+  width: 100%;
+  height: 650px;
+}
+
+.map-switch {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.map-switch button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+}
+
+.map-switch button:hover {
+  background-color: #357bd8;
+}
