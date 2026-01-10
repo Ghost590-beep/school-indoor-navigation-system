@@ -90,7 +90,7 @@ body {
 }
 
 .nav-node {
-  fill:none;
+  fill:red;
   stroke: #fff;
   stroke-width: 0;
   opacity: 0.8;
