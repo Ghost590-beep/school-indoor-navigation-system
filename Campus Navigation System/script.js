@@ -85,7 +85,7 @@ const floors = {
       "lecture-room-1": ["hall-main-left"],
       "byrd-hall": ["hall-main-center"],
       "computer-lab": ["hall-main-right"],
-      "restroom-2": ["hall-main-left"],
+      "restroom": ["hall-main-left"],
       "chumbow-hall": ["hall-vertical-mid"],
       "cisco-lab": ["hall-vertical-mid"],
       "stairs-floor-2": ["hall-vertical-bottom"],
@@ -351,6 +351,7 @@ function getNodeFloor(nodeId) {
   }
   return null;
 }
+
 
 // ========= Multi-floor BFS =========
 function bfsMultiFloor(start, end) {

@@ -1,0 +1,165 @@
+/* ===== GLOBAL RESET & THEME ===== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f0f;
+  color: #e6e6e6;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* ===== SCROLLBAR (CHROME / EDGE) ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c2c2c;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #0b0b0b;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo span {
+  color: #f1c40f;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: #e6e6e6;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #f1c40f;
+}
+
+/* ===== MAP PAGE ===== */
+.map-page {
+  min-height: calc(100vh - 80px);
+  padding: 40px 30px;
+  background: #121212;
+}
+
+.map-page h1 {
+  color: #f1c40f;
+  margin-bottom: 18px;
+  font-size: 1.6rem;
+}
+
+/* ===== MAP WRAPPER ===== */
+.map-wrapper {
+  width: 100%;
+  height: calc(100vh - 160px); /* header + padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== MAPPEDIN IFRAME ===== */
+.map-wrapper iframe {
+  width: 82%;
+  height: 82%;
+  border: none;
+  border-radius: 14px;
+  background: #000; /* prevents white flash */
+  box-shadow: 0 0 0 1px #1f1f1f, 0 20px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* ===== RESPONSIVE MAP ===== */
+@media (max-width: 1024px) {
+  .map-wrapper iframe {
+    width: 95%;
+    height: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-page {
+    padding: 25px 15px;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+  }
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  padding: 28px 20px;
+  background: #0b0b0b;
+  border-top: 1px solid #2a2a2a;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 45px;
+  margin-bottom: 12px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.footer-socials a {
+  color: #d0d0d0;
+  font-size: 1.3rem;
+  transition: color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #f1c40f;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+}
+
+.footer-sub {
+  font-size: 0.8rem;
+  color: #f1c40f;
+  margin-top: 6px;
+}
