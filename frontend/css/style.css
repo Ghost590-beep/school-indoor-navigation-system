@@ -55,7 +55,7 @@ body {
   min-height: 100vh;
   padding: 50px 20px;
   background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
-    url("../assets/images/ictuImage.png");
+    url("/frontend/assets/images/ICTU.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -152,7 +152,7 @@ body {
 ====================================================== */
 .home-page {
   background: linear-gradient(rgba(20, 20, 20, 0.6), rgba(20, 20, 20, 0.6)),
-    url("../assets/images/ictuImage.png");
+    url("/frontend/assets/images/ICTU.jpg");
   background-size: cover;
   background-position: center;
   color: #ffffff;
