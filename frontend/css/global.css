@@ -1,0 +1,135 @@
+/* ======================================================
+   GLOBAL RESET & BASE STYLES
+   Purpose: Remove default browser spacing and set base font
+====================================================== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======================================================
+   HEADER / NAVIGATION (GLOBAL)
+   Shared across all pages
+====================================================== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* Logo highlight */
+.logo span {
+  color: #f1c40f;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Navigation container */
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+/* Navigation links */
+.main-nav a {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+/* Active page indicator */
+.main-nav a.active {
+  color: #f1c40f;
+}
+
+/* Hover effect */
+.main-nav a:hover {
+  color: #f1c40f;
+}
+
+/* ======================================================
+   FOOTER (GLOBAL)
+====================================================== */
+.site-footer {
+  margin-top: 80px;
+  padding: 25px 15px;
+  background: #0f0f0f;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 32px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ======================================================
+   BACK TO TOP BUTTON (GLOBAL)
+====================================================== */
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: #f1c40f;
+  color: #0f0f0f;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999;
+}
+
+#backToTop.show {
+  display: flex;
+}
+
+#backToTop:hover {
+  transform: translateY(-4px);
+}
+
+.footer-sub {
+  color: #f1c40f;
+}
+
+/* ======================================================
+   RESPONSIVE HEADER & FOOTER
+====================================================== */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+
+  .footer-logo img {
+    width: 26px;
+  }
+}

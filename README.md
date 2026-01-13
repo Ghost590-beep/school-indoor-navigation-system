@@ -20,6 +20,29 @@ The application runs entirely in the browser and **does not require a backend se
 
 ---
 
+# ICT University Indoor Navigation System
+
+A web-based indoor navigation system designed to help students, staff,
+and visitors find rooms and facilities inside ICT University.
+
+## Features
+
+- Multi-floor indoor navigation
+- Interactive SVG campus map
+- Pathfinding using BFS algorithm
+- Floor switching and rotation
+- Clean and beginner-friendly code structure
+
+## Technologies Used
+
+-HTML
+
+- **CSS3** — layout, dark theme styling, responsiveness
+- **JavaScript (Vanilla)** — UI interactions (map view toggle, page behavior)
+- **SVG** — custom 2D map elements and graphics (manual map version)
+
+## Project Structure
+
 ## Key Features
 
 - Interactive indoor map embedded using **Mappedin**
@@ -28,17 +51,6 @@ The application runs entirely in the browser and **does not require a backend se
 - Dark theme UI for better usability and accessibility
 - Responsive layout for desktop and mobile browsers
 - Clean separation of pages (Home, Map, About)
-
----
-
-## 🛠 Technology Stack
-
-### Frontend
-
-- **HTML5** — structure and content
-- **CSS3** — layout, dark theme styling, responsiveness
-- **JavaScript (Vanilla)** — UI interactions (map view toggle, page behavior)
-- **SVG** — custom 2D map elements and graphics (manual map version)
 
 ### Mapping Platform
 
@@ -88,11 +100,16 @@ Issues are classified as:
 - **Issues 1–9** → Functional requirements (what the system does)
 - **Issues 10–14** → Technical implementation (how the system is built)
 
+## ▶️ How to Run
+
+1. Clone the repository
+2. Open `index.html` in your browser
+3. Start navigating the campus
+
+## 📌 Notes
+
+This project is developed as an academic project using Scrum methodology.
+
 ---
 
-## How to Run the Project
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-"https://github.com/Ghost590-beep/school-indoor-navigation-system.git">
-   ```
+Developed by ICT University Students
