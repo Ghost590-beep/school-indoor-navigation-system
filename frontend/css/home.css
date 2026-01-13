@@ -1,0 +1,136 @@
+/* ======================================================
+   HOME PAGE WRAPPER
+====================================================== */
+.home-page {
+  background: linear-gradient(rgba(20, 20, 20, 0.6), rgba(20, 20, 20, 0.6)),
+    url("/frontend/assets/images/ICTU.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+/* Main home container */
+.home {
+  position: relative;
+  min-height: 70vh;
+}
+
+/* ======================================================
+   HERO / INTRO SECTION
+====================================================== */
+.home-intro {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.home-intro h1 {
+  font-size: 2.4rem;
+  color: #f1c40f;
+}
+
+.home-intro p {
+  max-width: 700px;
+  margin: 15px auto 0;
+  color: #f0f0f0;
+}
+
+/* ======================================================
+   INFO BOXES (Floating Sections)
+====================================================== */
+.home-section {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  padding: 18px 22px;
+  width: 320px;
+  border-radius: 14px;
+  position: absolute;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Section title */
+.home-section h2 {
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Arrow animation */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(90deg);
+}
+
+/* Expandable content */
+.section-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.section-content.open {
+  display: block;
+}
+
+/* ======================================================
+   POSITION HELPERS
+====================================================== */
+.position-top-left {
+  top: 40px;
+  left: 40px;
+}
+
+.position-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.position-bottom-right {
+  bottom: 40px;
+  right: 40px;
+}
+
+/* ======================================================
+   RESPONSIVE HOME PAGE
+====================================================== */
+@media (max-width: 768px) {
+  .home {
+    position: static;
+    padding-bottom: 40px;
+  }
+
+  .home-intro {
+    padding: 60px 20px 30px;
+  }
+
+  .home-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-section {
+    position: static;
+    width: auto;
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  .position-top-left,
+  .position-center,
+  .position-bottom-right {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-intro h1 {
+    font-size: 1.55rem;
+  }
+
+  .home-section {
+    padding: 16px;
+  }
+}

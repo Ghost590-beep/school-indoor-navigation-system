@@ -2,54 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
+    <title>ICT University | About</title>
 
-    <!-- Font Awesome -->
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- ABOUT PAGE STYLES -->
+    <link rel="stylesheet" href="css/about.css" />
+    <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
   </head>
 
-  <body>
+  <body class="about-page">
     <!-- ================= HEADER ================= -->
     <header class="site-header">
-      <div class="logo"><span>ICTU Nav</span></div>
+      <div>
+        <span
+          style="
+            color: yellow;
+            font-size: 900;
+            font-family: Arial, Helvetica, sans-serif;
+          "
+          >ICTUNAV</span
+        >
+      </div>
+
       <nav class="main-nav">
         <a href="index.html">Home</a>
-        <a href="map.html">3D Map</a>
-        <a href="Main.html">2D Map</a>
+        <a href="map.html">3D map</a>
+          <a href="Main.html">2D map</a>
         <a href="about.html" class="active">About</a>
       </nav>
     </header>
 
-    <!-- ================= MAIN ================= -->
-    <main class="about-page">
-      <!-- ===== ABOUT HEADER ===== -->
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+      <!-- ABOUT HEADER -->
       <section class="about-header">
         <img
-          src="assets/images/logo (2).png"
+          src="/frontend/assets/images/logo-(2).png"
           alt="ICT University Logo"
           class="about-logo"
         />
-        <h1>About Our Project</h1>
+
+        <h1>About This Project</h1>
         <p class="subtitle">
-          An indoor campus navigation system developed using Agile Scrum
-          methodology.
+          A smart campus navigation solution for ICT University
         </p>
       </section>
 
-      <!-- ===== ABOUT CONTENT ===== -->
+      <!-- ABOUT CONTENT -->
       <section class="about-content">
-        <h2>Who We Are</h2>
+        <h2>Project Overview</h2>
         <p>
-          We are a student development team working collaboratively to design
-          and implement a web-based indoor navigation system for ICT University.
-          Our goal is to help new students, staff, and visitors easily locate
-          buildings, classrooms, and key facilities on campus.
+          This web-based navigation system is designed to help users locate
+          buildings, classrooms, and important services within ICT University.
+        </p>
+
+        <p>
+          The system is built using HTML, CSS, SVG, Mappdin and JavaScript with a focus on
+          simplicity, performance, and usability.
         </p>
         <h2>Our Approach</h2>
         <p>Hello</p>
@@ -60,79 +76,100 @@
           This ensures quality, transparency, and teamwork throughout
           development.
         </p>
-      </section>
-      <!-- ================= TEAM SECTION ================= -->
-      <!-- Cards + circles + names + roles (UNCHANGED STRUCTURE) -->
-      <section class="team-section">
-        <h2>Our Team</h2>
-        <div class="team-row">
-          <div class="team-card">
-            <div class="team-photo">Photo</div>
-            <h3>Member Name:</h3>
-            <span style="font-size: large; color: blue">PAH PA</span>
-            <p style="font-size: large">Role:</p>
-            <span style="font-size: large; color: blue">Everything</span>
-          </div>
+        <!-- TEAM SECTION -->
+<section class="team-section">
+  <h2>Meet the Team</h2>
 
-          <div class="team-card">
-            <div class="team-photo">Photo</div>
-            <h3>Member Name:</h3>
-            <span style="font-size: large; color: blue">Ryan Kole</span>
-            <p style="font-size: large">Role:</p>
-            <span style="font-size: large; color: blue">Product Owner</span>
-          </div>
+  <!-- Team cards wrapper (flex container) -->
+  <div class="team-row">
 
-          <div class="team-card">
-            <div class="team-photo">Photo</div>
-            <h3>Member Name:</h3>
-            <span style="font-size: large; color: blue">Predator</span>
-            <p style="font-size: large">Role:</p>
-            <span style="font-size: large; color: blue">Prey</span>
-          </div>
+    <!-- Team member 1 -->
+    <div class="team-card">
+      <div class="team-photo">Photo</div>
+      <p class="team-name">
+        <span class="label">Name:</span>
+        <span class="value">John Mc Knight Liyou</span>
+      </p>
+      <p class="team-role">
+        <span class="label">Role:</span>
+        <span class="value">Scrum Master</span>
+      </p>
+    </div>
 
-          <div class="team-card">
-            <div class="team-photo">Photo</div>
-            <h3>Member Name:</h3>
-            <span style="font-size: large; color: blue">CITYBOY</span>
-            <p style="font-size: large">Role:</p>
-            <span style="font-size: large; color: blue">Womanizer</span>
-          </div>
+    <!-- Team member 2 -->
+    <div class="team-card">
+      <div class="team-photo">Photo</div>
+      <p class="team-name">
+        <span class="label">Name:</span>
+        <span class="value">Ryan Kole Ebang</span>
+      </p>
+      <p class="team-role">
+        <span class="label">Role:</span>
+        <span class="value">Chief Technology Officer (CTO)</span>
+      </p>
+    </div>
 
-          <div class="team-card">
-            <div class="team-photo">Photo</div>
-            <h3>Member Name:</h3>
-            <span style="font-size: large; color: blue">PLAYBOY</span>
-            <p style="font-size: large">Role:</p>
-            <span style="font-size: large; color: blue">GAY</span>
-          </div>
-        </div>
-      </section>
+    <!-- Team member 3 -->
+    <div class="team-card">
+      <div class="team-photo">Photo</div>
+      <p class="team-name">
+        <span class="label">Name:</span>
+        <span class="value">Ndi Oben Fai</span>
+      </p>
+      <p class="team-role">
+        <span class="label">Role:</span>
+        <span class="value">Developer</span>
+      </p>
+    </div>
+
+    <!-- Team member 4 -->
+    <div class="team-card">
+      <div class="team-photo">Photo</div>
+      <p class="team-name">
+        <span class="label">Name:</span>
+        <span class="value">Ngole Eddy Junior Ndille</span>
+      </p>
+      <p class="team-role">
+        <span class="label">Role:</span>
+        <span class="value">Product Owner</span>
+      </p>
+    </div>
+
+    <!-- Team member 5 -->
+    <div class="team-card">
+      <div class="team-photo">Photo</div>
+      <p class="team-name">
+        <span class="label">Name:</span>
+        <span class="value">Philip</span>
+      </p>
+      <p class="team-role">
+        <span class="label">Role:</span>
+        <span class="value">Developer</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
     </main>
-    <button id="backToTop" aria-label="Back to top">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
 
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="./assets/images/ICTUlogo.png" alt="ICT University Logo" />
-        </div>
-
-        <div class="social-links">
-          <a href="https://github.com/YOUR-REPO" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://wa.me/YOURGROUPLINK" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a href="https://www.tiktok.com/@YOURPAGE" target="_blank">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-        </div>
+      <div class="footer-logo">
+        <img
+          src="/frontend/assets/images/logo-(2).png"
+          alt="ICT University Logo"
+                  />
+      </div>
+      <!-- SOCIAL MEDIA LINKS (RESTORED) -->
+             <!-- Social media icons -->
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
 
         <p class="footer-text">
           © 2026 Campus Navigation System — ICT University
@@ -140,23 +177,5 @@
         <p class="footer-sub">Built using Agile Scrum methodology</p>
       </div>
     </footer>
-    <script>
-      const backToTop = document.getElementById("backToTop");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-    </script>
   </body>
 </html>

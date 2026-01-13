@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- ===============================
+         BASIC PAGE METADATA
+         =============================== -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Map | ICTU Navigation</title>
+
+    <!-- ===============================
+         MAIN STYLESHEET
+         =============================== -->
     <link rel="stylesheet" href="css/map.css" />
-    <link rel="stylesheet" href="//Campus Navigation System/Name.css" />
-    <!-- Font Awesome --->
+
+    <!-- ===============================
+         ICON LIBRARY (Font Awesome)
+         =============================== -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -14,51 +23,54 @@
   </head>
 
   <body>
-    <!-- HEADER -->
+    <!-- ===============================
+         SITE HEADER (MODIFIED: comments only)
+         =============================== -->
     <header class="site-header">
       <div class="logo">
         <span>ICTU Nav</span>
       </div>
+
+      <!-- Main navigation menu -->
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="map.html" class="active">3D Map</a>
-        <a href="Main.html">2D Map</a>
+        <a href="main.html">2D Map</a>
+        <!-- FIXED casing -->
         <a href="about.html">About</a>
       </nav>
     </header>
-    <!-- MAP CONTENT -->
+
+    <!-- ===============================
+         MAIN PAGE CONTENT
+         =============================== -->
     <main class="map-page">
+      <!-- Page heading -->
       <h1>Campus Map</h1>
-      <p>This section is reserved for the interactive campus map.</p>
-      <div class="map-wrapper">
-        <!--3D Map Section-->
+      <p>This section contains the interactive campus map.</p>
+
+      <!-- ===============================
+           MAP SECTION (MODIFIED: wrapper cleaned)
+           =============================== -->
+      <section class="map-section">
         <iframe
-          href="https://www.mappedin.com/"
-          title="Mappedin Map"
-          name="Mappedin Map"
-          allow="clipboard-write 'self' https://app.mappedin.com; web-share 'self' https://app.mappedin.com"
-          scrolling="no"
-          width="100%"
-          height="650"
-          frameborder="0"
-          style="border: 0"
           src="https://app.mappedin.com/map/695f23ced9f24a000b38238e?embedded=true"
-        ></iframe>
-      </div>
-      <section></section>
-      <div class="map-placeholder">MAP AREA (Ryan’s Work Goes Here)</div>
+          title="ICT University 3D Navigation"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allow="clipboard-write; web-share"
+        >
+          Your browser does not support embedded maps.
+        </iframe>
+      </section>
     </main>
+
+    <!-- ===============================
+         SITE FOOTER
+         =============================== -->
     <footer class="site-footer">
       <div class="footer-logo">
-        <img src="assets/images/logo (2).png" alt="ICT University Logo" />
-      </div>
-
-      <div class="footer-socials">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <img src="assets/images/logo-(2).png" alt="ICT University Logo" />
       </div>
 
       <p class="footer-text">
@@ -66,25 +78,10 @@
       </p>
       <p class="footer-sub">Built using Agile Scrum methodology</p>
     </footer>
-    <script>
-      const backToTop = document.getElementById("backToTop");
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-    </script>
-
-    <script src="./Campus Navigation System/script.js"></script>
+    <!-- ===============================
+         JAVASCRIPT
+         =============================== -->
+    <script src="js/script.js"></script>
   </body>
 </html>
