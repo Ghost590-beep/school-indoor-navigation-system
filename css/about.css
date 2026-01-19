@@ -95,8 +95,8 @@
 
 /* Placeholder image circle */
 .team-photo {
-  width: 150px;
-  height: 150px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 12px;
   background: #2c2c2c;
   border-radius: 50%;
@@ -119,47 +119,6 @@
 
 .value {
   margin-left: 6px;
-}
-/* ======================================================
-   IMAGE STYLING
-   Purpose: Consistent image sizing and responsiveness
-/* === Resize all images inside about page content=== */
-/* Increase team photo container like GitHub profile pics */
-.team-photo {
-  width: 200px; /* bigger circle */
-  height: 200px; /* keeps square shape */
-  margin: 0 auto 12px;
-  background: #2c2c2c;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  overflow: hidden; /* ensures image fits inside circle */
-}
-
-/* Team photo images */
-.team-photo img {
-  width: 100%; /* fill container */
-  height: 100%; /* fill container */
-  object-fit: cover; /* crop but keep proportions */
-  display: block;
-  border-radius: 50%; /* maintain perfect circle */
-}
-
-/* Adjust team card height for bigger photo */
-.team-card {
-  width: 220px; /* slightly wider card */
-  background: #1b1b1b;
-  padding: 20px;
-  border-radius: 14px;
-  border: 1px solid #2f2f2f;
-}
-
-/* Footer logo remains the same */
-.footer-logo img {
-  max-width: 200px;
-  height: auto;
 }
 
 /* ======================================================
