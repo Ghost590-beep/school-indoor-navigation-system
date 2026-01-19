@@ -6,7 +6,7 @@
 .about-page {
   padding: 10px 10px; /* creates breathing room below header and above footer */
   background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
-    url("/frontend/assets/images/ICTU.jpg");
+    url("/assets/images/ICTU.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
