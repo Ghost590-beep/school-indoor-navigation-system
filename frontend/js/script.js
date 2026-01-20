@@ -332,6 +332,7 @@ const crossFloorGraph = {
   "stairs-basement": ["stairs-floor-1"]
 };
 
+
 // ========= Helpers =========
 function showFloor(floorId) {
   document.querySelectorAll(".floor").forEach(f => {
@@ -352,7 +353,19 @@ function getNodeFloor(nodeId) {
   return null;
 }
 
+// ===== Floor helper functions =====
+function getCurrentFloor() {
+  return document.getElementById("floorSelect").value;
+}
 
+function setCurrentFloor(floorId) {
+  document.getElementById("floorSelect").value = floorId;
+  document.querySelectorAll("svg g.floor").forEach(f => {
+    f.style.display = f.id === floorId ? "block" : "none";
+  });
+}
+
+/*
 // ========= Multi-floor BFS =========
 function bfsMultiFloor(start, end) {
   const queue = [[start]];
@@ -433,7 +446,143 @@ function drawPathMultiFloor(path) {
     svgGroup.appendChild(c);
   });
 }
+*/
 
+function bfsMultiFloor(start, end) {
+  const startFloor = getNodeFloor(start);
+  const endFloor = getNodeFloor(end);
+
+  if (!startFloor || !endFloor) return null;
+
+  const queue = [[{ node: start, floor: startFloor }]];
+  const visited = new Set();
+
+  while (queue.length) {
+    const path = queue.shift();
+    const last = path[path.length - 1];
+    const key = `${last.node}@${last.floor}`;
+
+    if (visited.has(key)) continue;
+    visited.add(key);
+
+    // ✅ Reached destination on correct floor
+    if (last.node === end && last.floor === endFloor) {
+      return path;
+    }
+
+    // 🟢 Same-floor neighbors ONLY
+    const graph = floors[last.floor].graph[last.node];
+    if (graph) {
+      for (const n of graph) {
+        queue.push([...path, { node: n, floor: last.floor }]);
+      }
+    }
+
+    // 🟣 Cross-floor (stairs ONLY)
+    const cross = crossFloorGraph[last.node];
+    if (cross) {
+      for (const stair of cross) {
+        const stairFloor = getNodeFloor(stair);
+        if (stairFloor) {
+          queue.push([...path, { node: stair, floor: stairFloor }]);
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+function splitPathByFloor(path) {
+  const segments = [];
+  let current = [];
+
+  for (const step of path) {
+    if (!current.length || current[0].floor === step.floor) {
+      current.push(step);
+    } else {
+      segments.push(current);
+      current = [step];
+    }
+  }
+
+  if (current.length) segments.push(current);
+  return segments;
+}
+
+function drawPathMultiFloor(path) {
+  if (!path || path.length < 2) return;
+
+  const floorGroups = {};
+
+  // Group path steps by floor
+  path.forEach(step => {
+    if (!floorGroups[step.floor]) floorGroups[step.floor] = [];
+    floorGroups[step.floor].push(step);
+  });
+
+  for (const floorId in floorGroups) {
+    const svgGroup = document.getElementById(floorId);
+    if (!svgGroup) continue;
+
+    // Clear only previous drawings on this floor
+    svgGroup.querySelectorAll(".nav-path, .nav-node").forEach(el => el.remove());
+
+    const steps = floorGroups[floorId];
+
+    const points = steps
+      .map(p => floors[floorId].nodes[p.node])
+      .filter(Boolean)
+      .map(n => `${n.x},${n.y}`)
+      .join(" ");
+
+    if (points.split(" ").length < 2) continue;
+
+    const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+    polyline.setAttribute("points", points);
+    polyline.setAttribute("class", "nav-path");
+    svgGroup.appendChild(polyline);
+
+    // Draw nodes
+    steps.forEach(p => {
+      const n = floors[floorId].nodes[p.node];
+      if (!n) return;
+      const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      c.setAttribute("cx", n.x);
+      c.setAttribute("cy", n.y);
+      c.setAttribute("r", 4);
+      c.setAttribute("class", "nav-node");
+      svgGroup.appendChild(c);
+    });
+  }
+}
+
+function playPath(path, delay = 3000) {
+  if (!path || path.length < 2) return;
+
+  const segments = splitPathByFloor(path);
+  let segIndex = 0;
+
+  function drawSegment() {
+    if (segIndex >= segments.length) return;
+
+    const segment = segments[segIndex];
+    const floor = segment[0].floor;
+
+    // Switch to floor first
+    setCurrentFloor(floor);
+
+    // Draw full segment at once
+    drawPathMultiFloor(segment);
+
+    segIndex++;
+    if (segIndex < segments.length) {
+      setTimeout(drawSegment, delay);
+    }
+  }
+
+  drawSegment();
+}
 
 // ========= Name normalization =========
 const baseNameMap = {
@@ -579,13 +728,20 @@ function normalize(input) {
 document.getElementById("navigateBtn").addEventListener("click", () => {
   const start = normalize(document.getElementById("startRoom").value);
   const end = normalize(document.getElementById("endRoom").value);
-
+/*
   const path = bfsMultiFloor(start, end);
   drawPathMultiFloor(path);
+*/
+const path = bfsMultiFloor(start, end);
 
-  if (!path) {
-    console.warn("No path found. Check names or graph connections.", { start, end });
-  }
+if (!path) {
+  console.warn("No path found", { start, end });
+  return;
+}
+
+// Draw current floor immediately
+playPath(path, 3000); // animate with automatic floor switching
+
 });
 
 document.getElementById("floorSelect").addEventListener("change", function () {
