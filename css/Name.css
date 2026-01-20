@@ -87,14 +87,30 @@ body {
 }
 
 
-.nav-path {
+/*.nav-path {
   fill: none;
   stroke: #e32;
   stroke-width: 4;
   stroke-linejoin: round;
   stroke-linecap: round;
   stroke-dasharray: 6;
+}*/
+
+.nav-path {
+  fill: none;
+  stroke: #00ffcc;
+  stroke-width: 4;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 10.2s ease forwards;
 }
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 
 .nav-node {
   fill:none;
@@ -174,3 +190,19 @@ body {
   justify-content: space-between;
   gap: 10px;
 }
+
+.stairs-highlight {
+  fill: orange;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.floor {
+  transition: opacity 0.5s ease;
+}
+
