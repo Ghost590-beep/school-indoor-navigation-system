@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ===============================
+         BASIC PAGE METADATA
+         =============================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Map | ICTU Navigation</title>
+
+    <!-- ===============================
+         MAIN STYLESHEET
+         =============================== -->
+    <link rel="stylesheet" href="css/map.css" />
+
+    <!-- ===============================
+         ICON LIBRARY (Font Awesome)
+         =============================== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ===============================
+         SITE HEADER (MODIFIED: comments only)
+         =============================== -->
+    <header class="site-header">
+      <div class="logo">
+        <span>ICTU Nav</span>
+      </div>
+
+      <!-- Main navigation menu -->
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="map.html" class="active">3D Map</a>
+        <a href="main.html">2D Map</a>
+        <!-- FIXED casing -->
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <!-- ===============================
+         MAIN PAGE CONTENT
+         =============================== -->
+    <main class="map-page">
+      <!-- Page heading -->
+      <h1>Campus Map</h1>
+      <p>This section contains the interactive campus map.</p>
+
+      <!-- ===============================
+           MAP SECTION (MODIFIED: wrapper cleaned)
+           =============================== -->
+      <section class="map-section">
+        <iframe
+          src="https://app.mappedin.com/map/695f23ced9f24a000b38238e?embedded=true"
+          title="ICT University 3D Navigation"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allow="clipboard-write; web-share"
+        >
+          Your browser does not support embedded maps.
+        </iframe>
+      </section>
+    </main>
+
+    <!-- ===============================
+         SITE FOOTER
+         =============================== -->
+    <footer class="site-footer">
+      <div class="footer-logo">
+        <img src="assets/images/logo-(2).png" alt="ICT University Logo" />
+      </div>
+
+      <p class="footer-text">
+        © 2026 Campus Navigation System — ICT University
+      </p>
+      <p class="footer-sub">Built using Agile Scrum methodology</p>
+    </footer>
+
+    <!-- ===============================
+         JAVASCRIPT
+         =============================== -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

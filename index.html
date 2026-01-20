@@ -5,20 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Font Awesome icons -->
+    <!-- Global + Home styles -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      <!--
+      Google
+      Analytics
+      snippet
+      --
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "YOUR_TRACKING_ID");
+    </script>
     />
   </head>
 
   <body class="home-page">
     <!-- ================= HEADER ================= -->
     <header class="site-header">
-      <div class="logo"><span>ICTU Nav</span></div>
+      <div class="logo">
+        <span>ICTU Nav</span>
+      </div>
 
       <nav class="main-nav" aria-label="Primary navigation">
         <a href="index.html" class="active">Home</a>
@@ -28,57 +48,57 @@
       </nav>
     </header>
 
-    <!-- ================= MAIN CONTENT ================= -->
+    <!-- ================= MAIN ================= -->
     <main class="home">
-      <!-- Intro / Hero Section -->
+      <!-- HERO SECTION -->
       <section class="home-intro">
         <h1>ICTU Indoor Navigation System</h1>
-        <p>
-          ICT University is a leading institution focused on information and
-          communication technologies, innovation, and practical learning.
+        <p style="font-size: large; font-family: Arial, Helvetica, sans-serif">
+          Helping students, staff, and visitors navigate ICT University with
+          ease.
         </p>
       </section>
-      <!-- Informational Sections -->
 
+      <!-- INFO BOX 1 -->
       <section class="home-section position-top-left">
-        <h2 onclick="toggleSection(this)" tabindex="0">
+        <h2 class="toggle-title" tabindex="0">
           <span class="arrow">▶</span>
           What This Application Does
         </h2>
         <div class="section-content">
           <p>
-            This web-based indoor navigation system helps users locate
-            classrooms, offices, and key facilities within ICT University.
+            This system helps users locate classrooms, offices, and facilities
+            within ICT University.
           </p>
         </div>
       </section>
 
+      <!-- INFO BOX 2 -->
       <section class="home-section position-center">
-        <h2 onclick="toggleSection(this)" tabindex="0">
+        <h2 class="toggle-title" tabindex="0">
           <span class="arrow">▶</span>
-          For Who It Is For
+          Who It Is For
         </h2>
         <div class="section-content">
-          <p>
-            The system is designed for students, staff, and visitors who need
-            quick and clear directions within the campus buildings.
-          </p>
+          <p>Designed for students, staff, parents, and campus visitors.</p>
         </div>
       </section>
 
+      <!-- INFO BOX 3 -->
       <section class="home-section position-bottom-right">
-        <h2 onclick="toggleSection(this)" tabindex="0">
+        <h2 class="toggle-title" tabindex="0">
           <span class="arrow">▶</span>
           How It Helps
         </h2>
         <div class="section-content">
           <p>
-            By providing an interactive map, the system reduces confusion, saves
-            time, and improves the overall campus experience.
+            Saves time, reduces confusion, and improves the campus experience.
           </p>
         </div>
       </section>
     </main>
+
+    <!-- ================= BACK TO TOP ================= -->
     <button id="backToTop" aria-label="Back to top">
       <i class="fa-solid fa-arrow-up"></i>
     </button>
@@ -87,9 +107,10 @@
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="assets/images/logo (2).png" alt="ICT University Logo" />
+          <img src="assets/images/logo-(2).png" alt="ICT University Logo" />
         </div>
 
+        <!-- SOCIAL MEDIA LINKS (RESTORED) -->
         <div class="social-links">
           <a href="#"><i class="fa-brands fa-github"></i></a>
           <a href="#"><i class="fa-brands fa-linkedin"></i></a>
@@ -103,32 +124,23 @@
         <p class="footer-sub">Built using Agile Scrum methodology</p>
       </div>
     </footer>
+
     <!-- ================= SCRIPT ================= -->
     <script>
-      function toggleSection(title) {
-        const content = title.nextElementSibling;
-        const arrow = title.querySelector(".arrow");
+      /* ---------------------------------
+         DROPDOWN SECTIONS (FIXED)
+      --------------------------------- */
+      const titles = document.querySelectorAll(".toggle-title");
 
-        content.classList.toggle("open");
-        arrow.classList.toggle("rotate");
-        //dropdown accessibility
-        const backToTop = document.getElementById("backToTop");
+      titles.forEach((title) => {
+        title.addEventListener("click", () => {
+          const content = title.nextElementSibling;
+          const arrow = title.querySelector(".arrow");
 
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            backToTop.classList.add("show");
-          } else {
-            backToTop.classList.remove("show");
-          }
+          content.classList.toggle("open");
+          arrow.classList.toggle("rotate");
         });
-
-        backToTop.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-      }
+      });
     </script>
   </body>
 </html>

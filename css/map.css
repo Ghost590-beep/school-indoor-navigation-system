@@ -1,0 +1,117 @@
+/* ===============================
+   GLOBAL RESET
+   =============================== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   BASE PAGE STYLES
+   =============================== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f0f0f;
+  color: #e6e6e6;
+}
+
+/* ===============================
+   HEADER STYLES
+   =============================== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: #0b0b0b;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+}
+
+.logo span {
+  color: #f1c40f;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Navigation links */
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #f1c40f;
+}
+
+/* ===============================
+   MAIN MAP PAGE
+   =============================== */
+.map-page {
+  padding: 40px 30px;
+  background-color: #121212;
+}
+
+.map-page h1 {
+  color: #f1c40f;
+}
+
+/* ===============================
+   MAP SECTION (MAIN CONTENT)
+   =============================== */
+.map-section {
+  width: 100%;
+  height: 70vh;
+  margin-top: 20px;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+.site-footer {
+  padding: 25px;
+  background-color: #0b0b0b;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 45px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: #d0d0d0;
+}
+
+.footer-socials a:hover {
+  color: #f1c40f;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+}
+
+.footer-sub {
+  font-size: 0.8rem;
+  color: #f1c40f;
+}
