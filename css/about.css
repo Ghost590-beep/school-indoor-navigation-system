@@ -141,3 +141,31 @@
     max-width: 260px;
   }
 }
+
+.team-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+.team-card {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 200px;
+}
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.label {
+  font-weight: bold;
+  color: yellow;
+}
