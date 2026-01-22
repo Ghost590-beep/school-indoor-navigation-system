@@ -209,42 +209,21 @@ body {
   transition: opacity 0.5s ease;
 }
 
-/* ============================
-   RESPONSIVE RULES (Tablet, Desktop,Phone)
-   ============================ */
+/* Make SVG responsive */
+#building-svg {
+  width: 100%;
+  height: auto;
+}
 
-/* Phones */
-@media (max-width: 600px) {
-  body {
-    margin: 10px;
-  }
-
-  #map-container {
-    width: 100%;
-    height: 220px;
-    margin: 15px auto;
-  }
-
+/* Tablet screens */
+@media (max-width: 1024px) {
   .nav-ui {
-    width: 100%;
-    max-width: 100%;
     padding: 15px;
+    width: 100%;
   }
 
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .action-buttons {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .nav-controls input,
-  .nav-controls select,
-  .nav-controls button {
-    font-size: 0.95em;
+  #building-svg {
+    max-height: 500px;
   }
 
   .label {
@@ -252,35 +231,38 @@ body {
   }
 }
 
-/* Tablets */
-@media (min-width: 601px) and (max-width: 900px) {
-  #map-container {
-    width: 80%;
-    height: 260px;
+/* Mobile screens */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .nav-ui {
-    max-width: 95%;
-    padding: 18px;
-  }
-
-  .controls {
+  .main-nav {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  #building-svg {
+    max-height: 350px;
   }
 
   .label {
-    font-size: 13px;
+    font-size: 11px;
   }
 }
 
-/* Desktop */
-@media (min-width: 901px) {
-  #map-container {
-    width: 60%;
-    height: 300px;
+/* Small phones */
+@media (max-width: 480px) {
+  #building-svg {
+    max-height: 280px;
   }
 
-  .nav-ui {
-    max-width: 900px;
+  .label {
+    font-size: 10px;
   }
 }
